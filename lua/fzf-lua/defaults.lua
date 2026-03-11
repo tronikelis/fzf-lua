@@ -671,10 +671,9 @@ M.defaults.git                   = {
   ---Git reference used as the base for the comparison.
   ---@field compare_against? string
   diff = {
-    cmd               = "git --no-pager diff --name-only {compare_against} {ref}",
+    cmd               = "git --no-pager diff --name-only {ref}",
     ref               = "HEAD",
-    compare_against   = "",
-    preview           = "git diff {compare_against} {ref} {file}",
+    preview           = "git diff {ref} {file}",
     preview_pager     = M._preview_pager_fn,
     multiprocess      = 1, ---@type integer|boolean
     _type             = "file",
