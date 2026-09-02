@@ -37,7 +37,7 @@ do
   -- fixed $NVIM_LISTEN_ADDRESS, different neovim instances will use the same path
   -- as their address and messages won't be received on older instances
   if not vim.g.fzf_lua_server then
-    local ok, srv = pcall(vim.fn.serverstart, "fzf-lua." .. os.time())
+    local ok, srv = pcall(vim.fn.serverstart, string.sub(vim.fn.stdpath("run") .. "fzf-lua." .. os.time(), 1, 104))
     if ok then
       vim.g.fzf_lua_server = srv
     else
